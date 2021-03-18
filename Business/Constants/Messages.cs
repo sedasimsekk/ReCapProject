@@ -16,5 +16,8 @@ namespace Business.Constants
         public static string CarListed = "Listelendi";
         public static string BrandAdded="Marka Eklendi";
         public static string ColorAdded = "Renk Eklendi";
+        public static string UserAdded = "Kullanıcı Eklendi";
+        public static string UserPasswordInvalid = "Girilen şifre boyutu yetersiz";
+        public static string CustomerAdded="Müşteri Eklendi";
     }
 }

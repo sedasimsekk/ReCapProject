@@ -14,8 +14,26 @@ namespace ConsoleUI
             //ColorTest(); //burada color manager kısmı için olanlar var 
             //BrandTest(); //burada car manager kısmı için olanlar var 
             //CarDetails(); //burada car details kısmı için olanlar var 
-            
+            //UserTest(); //burada usermanager kısmı için added var 
+            //CustomerTest(); //burada customermanager kısmı için olanlar var 
 
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            var result = customerManager.GetAll();
+            foreach (var customer in result.Data)
+            {
+                Console.WriteLine(customer.CustomerId + "" + customer.CompanyName);
+            }
+        }
+
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.Added(new User { UserId = 1, FirstName = "Sedanur", LastName = "Şimşek", Email = "sedasimsek@gmail.com", Password = "123456" });
+            Console.WriteLine(result.Message);
         }
 
         private static void CarDetails()
