@@ -19,5 +19,9 @@ namespace Business.Constants
         public static string UserAdded = "Kullanıcı Eklendi";
         public static string UserPasswordInvalid = "Girilen şifre boyutu yetersiz";
         public static string CustomerAdded="Müşteri Eklendi";
+        public static string NotAddedRental = "Arabayı kiralayan kişi teslim etmediği için şuan sizin adınıza kiralanamaz";
+        public static string RentalAdded="Araba Kiralandı,Hoşça Kullanın";
+        public static string ReturnDateUpdate="Teslim Edildi,Teşekkür Ederiz Tekrar Görüşmek Dileğiyle";
+        public static string ReturnDateNotUpdate="Araba Zaten Teslim Edilmiş";
     }
 }

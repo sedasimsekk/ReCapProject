@@ -13,6 +13,5 @@ namespace Entities.Concrete
         public int CustomerId { get; set; }
         public DateTime RentDate { get; set; } //kiralama tarihi
         public DateTime ReturnDate { get; set; } //teslim tarihi
-
     }
 }

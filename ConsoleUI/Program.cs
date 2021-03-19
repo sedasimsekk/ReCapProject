@@ -16,7 +16,25 @@ namespace ConsoleUI
             //CarDetails(); //burada car details kısmı için olanlar var 
             //UserTest(); //burada usermanager kısmı için added var 
             //CustomerTest(); //burada customermanager kısmı için olanlar var 
+            //CustomerDetails(); //burada customer details kısmı için olanlar var 
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.GetAll();
+            foreach (var rental in result.Data)
+            {
+                Console.WriteLine(rental.RentalId);
+            }
 
+
+        }
+
+        private static void CustomerDetails()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            var result = customerManager.GetCustomerDetails();
+            foreach (var customer in result.Data)
+            {
+                Console.WriteLine(customer.CustomerId + customer.CustomerCompanyName + customer.CustomerFirstName + customer.CustomerLastName);
+            }
         }
 
         private static void CustomerTest()
