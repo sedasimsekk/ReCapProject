@@ -12,6 +12,6 @@ namespace Entities.Concrete
         public int CarId { get; set; }
         public int CustomerId { get; set; }
         public DateTime RentDate { get; set; } //kiralama tarihi
-        public DateTime ReturnDate { get; set; } //teslim tarihi
+        public DateTime? ReturnDate { get; set; } //teslim tarihi
     }
 }

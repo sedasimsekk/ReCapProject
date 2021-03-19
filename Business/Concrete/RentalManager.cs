@@ -31,8 +31,8 @@ namespace Business.Concrete
 
         public IResult CheckReturnDate(int carId)
         {
-            var result = _rentalDal.Get(r => r.CarId == carId && r.ReturnDate == null);
-            if(result!=null)
+            var result = _rentalDal.GetAll(r => r.CarId == carId && r.ReturnDate == null);
+            if(result.Count>0)
             {
                 return new ErrorResult();
             }

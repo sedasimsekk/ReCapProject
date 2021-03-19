@@ -17,14 +17,27 @@ namespace ConsoleUI
             //UserTest(); //burada usermanager kısmı için added var 
             //CustomerTest(); //burada customermanager kısmı için olanlar var 
             //CustomerDetails(); //burada customer details kısmı için olanlar var 
+            //RentalTest(); //burada rental manager kısmı için olanlar var 
+            // RentalAdded(); //burada rental add işlemi yapıldı.
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Updated(new Rental { RentalId = 4, CarId = 1, CustomerId = 4, RentDate = new DateTime(2020, 12, 03), ReturnDate = new DateTime(2020, 12, 05) });
+        }
+
+        private static void RentalAdded()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Added(new Rental { RentalId = 4, CarId = 1, CustomerId = 4, RentDate = new DateTime(2020, 12, 03), ReturnDate = null });
+            Console.WriteLine(result.Message);
+        }
+
+        private static void RentalTest()
+        {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             var result = rentalManager.GetAll();
             foreach (var rental in result.Data)
             {
                 Console.WriteLine(rental.RentalId);
             }
-
-
         }
 
         private static void CustomerDetails()
