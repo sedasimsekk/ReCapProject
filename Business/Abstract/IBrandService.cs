@@ -11,5 +11,7 @@ namespace Business.Abstract
         IDataResult<List<Brand>> GetAll();
         IDataResult<List<Brand>> GetCarsByBrandId(int id);
         IResult Added(Brand brand);
+        IResult Deleted(Brand brand);
+        IResult Updated(Brand brand);
     }
 }

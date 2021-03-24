@@ -23,5 +23,11 @@ namespace Business.Constants
         public static string RentalAdded="Araba Kiralandı,Hoşça Kullanın";
         public static string ReturnDateUpdate="Teslim Edildi,Teşekkür Ederiz Tekrar Görüşmek Dileğiyle";
         public static string ReturnDateNotUpdate="Araba Zaten Teslim Edilmiş";
+        public static string CarDeleted="Araba Silindi";
+        public static string CarUpdated="Araba Bilgileri Başarıyla Güncellendi";
+        public static string BrandDeleted="Marka Silindi";
+        public static string BrandUpdated="Marka Güncellenmesi Başarıyla Sağlandı";
+        public static string ColorDeleted="Renk Silindi";
+        public static string ColorUpdated="Renk Güncellenmesi Başarıyla Sağlandı";
     }
 }

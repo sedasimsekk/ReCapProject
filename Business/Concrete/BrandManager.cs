@@ -31,6 +31,12 @@ namespace Business.Concrete
             }
         }
 
+        public IResult Deleted(Brand brand)
+        {
+            _brandDal.Delete(brand);
+            return new SuccessResult(Messages.BrandDeleted);
+        }
+
         public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
@@ -39,6 +45,12 @@ namespace Business.Concrete
         public IDataResult<List<Brand>> GetCarsByBrandId(int id)
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(b => b.Id == id));
+        }
+
+        public IResult Updated(Brand brand)
+        {
+            _brandDal.UpDate(brand);
+            return new SuccessResult(Messages.BrandUpdated);
         }
     }
 }

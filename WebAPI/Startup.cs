@@ -31,7 +31,12 @@ namespace WebAPI
         {
             services.AddControllers();
             services.AddSingleton<ICarService,CarManager>(); //IoC Container--bellekte ihtiyacý olan kullansýn ama tek bir tane instance oluþturan yapý singleton
-            services.AddSingleton<ICarDal, EfCarDal>(); 
+            services.AddSingleton<ICarDal, EfCarDal>();
+            services.AddSingleton<IBrandService, BrandManager>();
+            services.AddSingleton<IBrandDal,EfBrandDal>();
+            services.AddSingleton<IColorService, ColorManager>();
+            services.AddSingleton<IColorDal, EfColorDal>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

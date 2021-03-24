@@ -30,6 +30,12 @@ namespace Business.Concrete
             }
         }
 
+        public IResult Deleted(Color color)
+        {
+            _colorDal.Delete(color);
+            return new SuccessResult(Messages.ColorDeleted);
+        }
+
         public IDataResult<List<Color>> GetAll()
         {
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
@@ -40,6 +46,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll(c => c.Id == id));
         }
 
-
+        public IResult Updated(Color color)
+        {
+            _colorDal.UpDate(color);
+            return new SuccessResult(Messages.ColorUpdated);
+        }
     }
 }
