@@ -29,5 +29,10 @@ namespace Business.Constants
         public static string BrandUpdated="Marka Güncellenmesi Başarıyla Sağlandı";
         public static string ColorDeleted="Renk Silindi";
         public static string ColorUpdated="Renk Güncellenmesi Başarıyla Sağlandı";
+        public static string UserDeleted="Kullanıcı Silindi";
+        public static string UserUpdated="Kullanıcı Bilgileri Güncellemesi Başarıyla Sağlandı";
+        public static string CustomerDeleted="Müşteri Silindi";
+        public static string CustomerUpdated="Müşteri Başarıyla Güncellendi";
+        public static string RentalDeleted="Araba Kiralama İşlemi Başarıyla Silindi";
     }
 }

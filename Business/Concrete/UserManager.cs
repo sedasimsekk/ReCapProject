@@ -30,6 +30,12 @@ namespace Business.Concrete
             }
         }
 
+        public IResult Deleted(User user)
+        {
+            _userDal.Delete(user);
+            return new SuccessResult(Messages.UserDeleted);
+        }
+
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll());
@@ -43,6 +49,12 @@ namespace Business.Concrete
         public IDataResult<User> GetByUserId(int userId)
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.UserId== userId));
+        }
+
+        public IResult Updated(User user)
+        {
+            _userDal.UpDate(user);
+            return new SuccessResult(Messages.UserUpdated);
         }
     }
 }
