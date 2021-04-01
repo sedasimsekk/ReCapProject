@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -9,7 +11,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class ColorManager:IColorService
+    public class ColorManager : IColorService
     {
         IColorDal _colorDal;
 
@@ -19,15 +21,9 @@ namespace Business.Concrete
         }
         public IResult Added(Color color)
         {
-            if (color.ColorName.Length > 2)
-            {
-                _colorDal.Add(color);
-                return new SuccessResult(Messages.ColorAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.NameInvalid);
-            }
+            ValidationTool.Validate(new ColorValidator(), color);
+            _colorDal.Add(color);
+            return new SuccessResult(Messages.ColorAdded);
         }
 
         public IResult Deleted(Color color)

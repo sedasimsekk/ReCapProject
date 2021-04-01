@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -9,7 +11,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class UserManager:IUserService
+    public class UserManager : IUserService
     {
         IUserDal _userDal;
         public UserManager(IUserDal userDal)
@@ -19,15 +21,9 @@ namespace Business.Concrete
 
         public IResult Added(User user)
         {
-            if (user.Password.Length >= 6)
-            {
-                _userDal.Add(user);
-                return new SuccessResult(Messages.UserAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.UserPasswordInvalid);
-            }
+            ValidationTool.Validate(new UserValidator(), user);
+            _userDal.Add(user);
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Deleted(User user)
@@ -43,12 +39,12 @@ namespace Business.Concrete
 
         public IDataResult<User> GetByFırstName(string firstName)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u=>u.FirstName==firstName));
+            return new SuccessDataResult<User>(_userDal.Get(u => u.FirstName == firstName));
         }
 
         public IDataResult<User> GetByUserId(int userId)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u => u.UserId== userId));
+            return new SuccessDataResult<User>(_userDal.Get(u => u.UserId == userId));
         }
 
         public IResult Updated(User user)
